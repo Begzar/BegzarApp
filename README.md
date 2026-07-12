@@ -103,7 +103,7 @@ If you use Begzar, you can support us by:
 | Channel | Address |
 |---|---|
 | 🌐 Website | [begzar.app](https://begzar.app) |
-| 📧 Email | [info@begzar.xyz](mailto:support@begzar.app) |
+| 📧 ایمیل | [support@begzar.app](mailto:support@begzar.app) |
 | 📢 Telegram | [@BegzarVPN](https://t.me/BegzarVPN) |
 
 ---
