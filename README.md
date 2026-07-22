@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="5760" height="3240" alt="Thumbnail (3)" src="https://github.com/user-attachments/assets/f9aa7350-ed45-44b3-8d52-f8906f1e55d2" />
+<img width="5760" height="3240" alt="Thumbnail (6)" src="https://github.com/user-attachments/assets/37822da8-acba-4088-aa98-7ba68b30f928" />
 
 
 # 🐦 Begzar | Free & Secure Internet Access
