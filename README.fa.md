@@ -1,5 +1,5 @@
 <div align="center">
-<img width="5760" height="3240" alt="Thumbnail (3)" src="https://github.com/user-attachments/assets/f8ff96d2-86f4-4bfb-a473-e30320584087" />
+<img width="5760" height="3240" alt="Thumbnail" src="https://github.com/user-attachments/assets/1c5c49fa-a98f-458d-bf9b-942a78a2f298" />
 
 
 # 🐦 بگذر | دسترسی آزاد و امن به اینترنت
