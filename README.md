@@ -1,6 +1,5 @@
 <div align="center">
-
-<img width="5760" height="3240" alt="Thumbnail (6)" src="https://github.com/user-attachments/assets/37822da8-acba-4088-aa98-7ba68b30f928" />
+<img width="5760" height="3240" alt="Thumbnail" src="https://github.com/user-attachments/assets/1c5c49fa-a98f-458d-bf9b-942a78a2f298" />
 
 
 # 🐦 Begzar | Free & Secure Internet Access
@@ -103,7 +102,7 @@ If you use Begzar, you can support us by:
 | Channel | Address |
 |---|---|
 | 🌐 Website | [begzar.app](https://begzar.app) |
-| 📧 ایمیل | [support@begzar.app](mailto:support@begzar.app) |
+| 📧 Email | [support@begzar.app](mailto:support@begzar.app) |
 | 📢 Telegram | [@BegzarVPN](https://t.me/BegzarVPN) |
 
 ---
