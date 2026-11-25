@@ -1,0 +1,81 @@
+platform :osx, '12.4'
+
+# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+# Read by firebase_analytics' podspec: link Analytics without the advertising
+# identifier and on-device ad conversion. The app runs no ad network.
+$FirebaseAnalyticsWithoutAdIdSupport = true
+
+# CocoaPods cannot parse Xcode objectVersion 70. Backup/restore around install.
+_pbxproj = File.expand_path('Runner.xcodeproj/project.pbxproj', __dir__)
+_pbx_backup = File.expand_path('Runner.xcodeproj/project.pbxproj.cocoapods_bak', __dir__)
+if File.exist?(_pbxproj)
+  File.write(_pbx_backup, File.read(_pbxproj))
+  contents = File.read(_pbxproj)
+  if contents.include?('objectVersion = 70;')
+    File.write(_pbxproj, contents.gsub('objectVersion = 70;', 'objectVersion = 54;'))
+  end
+end
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'ephemeral', 'Flutter-Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure \"flutter pub get\" is executed first"
+  end
+
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    matches = line.match(/FLUTTER_ROOT\=(.*)/)
+    return matches[1].strip if matches
+  end
+  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Flutter-Generated.xcconfig, then run \"flutter pub get\""
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+require 'fileutils'
+
+flutter_macos_podfile_setup
+
+# Refuse to prepare a build that has no proxy engine to link. Runs before Xcode
+# is involved, so it can build the engine where this host can and name the
+# script that produces it where it cannot — see the note in ios/Podfile.
+pre_install do |_installer|
+  gate = File.expand_path(File.join(__dir__, '..', 'scripts', 'verify_engine.sh'))
+  raise "Missing #{gate}" unless File.exist?(gate)
+
+  system('bash', gate, 'ensure', 'macos') || raise('The macOS proxy engine is missing.')
+end
+
+target 'Runner' do
+  use_frameworks!
+
+  flutter_install_all_macos_pods File.dirname(File.realpath(__FILE__))
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_macos_build_settings(target)
+  end
+
+  if File.exist?(_pbx_backup)
+    FileUtils.mv(_pbx_backup, _pbxproj)
+  elsif File.exist?(_pbxproj)
+    contents = File.read(_pbxproj)
+    File.write(_pbxproj, contents.gsub('objectVersion = 54;', 'objectVersion = 70;')) if contents.include?('objectVersion = 54;')
+  end
+  # Always restore objectVersion 70 (PacketTunnel synchronized groups).
+  if File.exist?(_pbxproj)
+    c = File.read(_pbxproj)
+    File.write(_pbxproj, c.gsub('objectVersion = 54;', 'objectVersion = 70;')) if c.include?('objectVersion = 54;')
+  end
+
+end

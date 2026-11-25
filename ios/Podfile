@@ -1,0 +1,61 @@
+# Keep in sync with Runner deployment target / Flutter plugins (Firebase etc.).
+platform :ios, '15.6'
+
+# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+# Read by firebase_analytics' podspec: link Analytics without the advertising
+# identifier and on-device ad conversion. The app runs no ad network.
+$FirebaseAnalyticsWithoutAdIdSupport = true
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
+  end
+
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    matches = line.match(/FLUTTER_ROOT\=(.*)/)
+    return matches[1].strip if matches
+  end
+  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+# Refuse to prepare a build that has no proxy engine to link.
+#
+# This lives here rather than in a Run Script phase because Xcode validates the
+# BegzarEngineKit.xcframework file reference before any phase runs, and reports only
+# that a path is missing. `pod install` happens before Xcode is involved at all,
+# which is early enough to build the engine when this host can and to name the
+# script that produces it when it cannot.
+pre_install do |_installer|
+  gate = File.expand_path(File.join(__dir__, '..', 'scripts', 'verify_engine.sh'))
+  raise "Missing #{gate}" unless File.exist?(gate)
+
+  system('bash', gate, 'ensure', 'ios') || raise('The iOS proxy engine is missing.')
+end
+
+target 'Runner' do
+  use_frameworks!
+
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+  end
+end

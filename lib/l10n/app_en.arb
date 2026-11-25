@@ -1,0 +1,714 @@
+{
+  "@@locale": "en",
+  "appName": "BEGZAR",
+  "cancel": "Cancel",
+  "save": "Save",
+  "premium": "Premium",
+  "basic": "Basic",
+  "unknown": "-",
+  "planPremium": "Premium",
+  "planBasic": "Basic",
+  "premiumDialogTitle": "Premium Subscription",
+  "premiumDialogMessage": "Sign in or purchase Premium to unlock premium server configs.",
+  "buyPremium": "Buy Premium",
+  "subscriptionExpiredTitle": "Subscription Expired",
+  "subscriptionExpiredMessage": "Your Premium subscription has expired. Renew to continue using premium servers.",
+  "renewSubscription": "Renew Subscription",
+  "accountInactiveTitle": "Account Inactive",
+  "accountInactiveMessage": "Your account has been deactivated. Please contact Telegram support.",
+  "otherVpnTurnedOff": "Another VPN was connected on your device, so Begzar disconnected it.",
+  "otherVpnOnTitle": "Another VPN Is On",
+  "otherVpnOnMessage": "Another VPN is connected on this device, and Begzar can't turn it off. Turn it off in your device's VPN settings, then try again.",
+  "otherVpnContinueAnyway": "Continue Anyway",
+  "openSettings": "Open Settings",
+  "contactSupport": "Contact Support",
+  "accountInactiveSupportMessage": "Hello, my Premium account has been deactivated and I need help.",
+  "premiumSupportMessage": "Hello, I would like to purchase a Begzar Premium subscription.",
+  "conn_connecting": "Connecting",
+  "conn_disconnecting": "Disconnecting",
+  "conn_connected": "Protected",
+  "conn_error": "Couldn't connect",
+  "conn_ready": "Not protected",
+  "connSub_connecting": "Tap to cancel",
+  "connSub_connectingDesktop": "Click to cancel",
+  "connSub_disconnecting": "Closing the tunnel",
+  "connSub_error": "Tap to try again",
+  "connSub_errorDesktop": "Click to try again",
+  "connSub_ready": "Tap to auto-connect",
+  "connSub_readyDesktop": "Click to auto-connect",
+  "locationUnavailable": "Location unavailable",
+  "tapToTest": "Tap to test",
+  "tapToTestDesktop": "Click to test",
+  "tapToRetry": "Tap to retry",
+  "tapToRetryDesktop": "Click to retry",
+  "pingMs": "{ms}ms",
+  "@pingMs": {
+    "placeholders": {
+      "ms": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "pingExcellent": "Excellent",
+  "pingGood": "Good",
+  "pingFair": "Fair",
+  "pingPoor": "Poor",
+  "settingsCategoryApp": "App",
+  "settingsCategoryGeneral": "General",
+  "settingsCategoryConnection": "Connection",
+  "settingsCategoryNetwork": "Network",
+  "settingsCategoryExperimental": "Experimental",
+  "experimentalTitle": "Experimental settings",
+  "experimentalEnabled": "Free connections use Cloudflare WARP",
+  "experimentalDisabled": "Free connections use Begzar's servers",
+  "warpModeTitle": "WARP mode",
+  "warpModeMasque": "MASQUE",
+  "warpModeWarp": "WireGuard",
+  "warpModeGool": "WARP in WARP",
+  "warpModeMasquePsiphon": "Psiphon over MASQUE",
+  "warpModePsiphon": "Psiphon over WARP",
+  "languageTitle": "Language",
+  "languageSubtitle": "Change app language",
+  "themeTitle": "Theme",
+  "themeSystem": "System default",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "appRoutingTitle": "App Routing",
+  "appRoutingSubtitleNone": "Choose which apps use the VPN",
+  "appRoutingSubtitleAllExcept": "{count, plural, =1{All except 1 app} other{All except {count} apps}}",
+  "@appRoutingSubtitleAllExcept": {
+    "description": "Persian keeps two spaces before the count: ز curls left under one, and the count reads as joined to it.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "appRoutingSubtitleOnly": "{count, plural, =1{Only 1 app} other{Only {count} apps}}",
+  "@appRoutingSubtitleOnly": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "appRoutingNeedsVpn": "Turn off Proxy Only Mode to route apps",
+  "appRoutingModeAllExcept": "All apps use VPN, except…",
+  "appRoutingModeAllExceptHint": "Everything goes through the VPN. Apps you pick go direct.",
+  "appRoutingModeOnly": "Only some apps use VPN",
+  "appRoutingModeOnlyHint": "Nothing goes through the VPN except the apps you pick. With none picked, every app does.",
+  "appRoutingPickAllExcept": "Pick apps that skip the VPN",
+  "appRoutingPickOnly": "Pick apps that use the VPN",
+  "appRoutingThroughVpn": "{count, plural, =1{1 app through VPN} other{{count} apps through VPN}}",
+  "@appRoutingThroughVpn": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "appRoutingDirect": "{count, plural, =1{1 app direct} other{{count} apps direct}}",
+  "@appRoutingDirect": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "appRoutingTagVpn": "VPN",
+  "appRoutingTagDirect": "Direct",
+  "dnsServerTitle": "DNS Server",
+  "dnsServerCurrent": "Current: {dns}",
+  "@dnsServerCurrent": {
+    "placeholders": {
+      "dns": {
+        "type": "String"
+      }
+    }
+  },
+  "proxyOnlyTitle": "Proxy Only Mode",
+  "proxyOnlyEnabled": "Using SOCKS proxy on port {port}",
+  "@proxyOnlyEnabled": {
+    "placeholders": {
+      "port": {
+        "type": "int"
+      }
+    }
+  },
+  "proxyOnlyDisabled": "Use proxy mode instead of VPN",
+  "connectionModeTunnel": "Tunnel",
+  "connectionModeTunnelHint": "Every app goes through Begzar. Windows asks for admin permission each time you connect.",
+  "connectionModeSystemProxy": "System proxy",
+  "connectionModeSystemProxyHint": "Apps that follow Windows proxy settings use 127.0.0.1:{port}",
+  "@connectionModeSystemProxyHint": {
+    "placeholders": {
+      "port": {
+        "type": "int"
+      }
+    }
+  },
+  "connectionModeProxyOnly": "Proxy only",
+  "connectionModeProxyOnlyHint": "Point apps at SOCKS port {port} yourself",
+  "@connectionModeProxyOnlyHint": {
+    "placeholders": {
+      "port": {
+        "type": "int"
+      }
+    }
+  },
+  "bypassLanTitle": "Bypass LAN",
+  "bypassLanEnabled": "SOCKS listens on all interfaces (0.0.0.0)",
+  "bypassLanDisabled": "Allow other devices on your network to use this proxy",
+  "bypassLanRequiresProxy": "Enable Proxy Only Mode to use Bypass LAN",
+  "bypassLanRequiresProxyMode": "Choose Proxy only to use Bypass LAN",
+  "bypassLanAddressesTitle": "Device addresses",
+  "bypassLanNoAddresses": "No LAN address found",
+  "bypassLanEndpoint": "socks5://{ip}:{port}",
+  "@bypassLanEndpoint": {
+    "placeholders": {
+      "ip": {
+        "type": "String"
+      },
+      "port": {
+        "type": "int"
+      }
+    }
+  },
+  "routingRulesTitle": "Site & IP Rules",
+  "routingRulesSubtitle": "Route or block sites and IPs",
+  "routingRulesCount": "{count, plural, =1{1 custom rule} other{{count} custom rules}}",
+  "@routingRulesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "routingRulesScreenTitle": "Site & IP Rules",
+  "routingRulesHint": "Custom rules apply on the next connection. Reconnect VPN to apply changes.",
+  "routingTabDirect": "Direct",
+  "routingTabBlock": "Block",
+  "routingTabProxy": "Proxy",
+  "routingAddRule": "Add Rule",
+  "routingEntryDomain": "Domain",
+  "routingEntryIp": "IP",
+  "routingDomainHint": "example.com",
+  "routingIpHint": "10.0.0.0/8 or 8.8.8.8",
+  "routingInvalidInput": "Invalid domain or IP address",
+  "routingEmptyDirect": "No direct routes yet",
+  "routingAlreadyListed": "That rule is already in the list",
+  "routingEmptyBlock": "No blocked routes yet",
+  "routingEmptyProxy": "No proxy routes yet",
+  "settingsInfoReconnect": "Changes will apply after reconnecting VPN",
+  "dnsDialogTitle": "DNS Server",
+  "dnsDialogPrompt": "Enter DNS server IP address:",
+  "dnsDialogCommon": "Common DNS servers:",
+  "dnsDialogInvalid": "Enter an IP address, such as 8.8.8.8",
+  "languageDialogTitle": "Select Language",
+  "languageChoiceHint": "You can change this later in Settings",
+  "languageContinue": "Continue",
+  "dnsChipLabel": "{label} ({dns})",
+  "@dnsChipLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "dns": {
+        "type": "String"
+      }
+    }
+  },
+  "dnsGoogle": "Google",
+  "dnsCloudflare": "Cloudflare",
+  "dnsLevel3": "Level3",
+  "dnsOpenDns": "OpenDNS",
+  "clearAll": "Clear All",
+  "searchAppsHint": "Search apps...",
+  "noAppsFound": "No apps found",
+  "noSearchResults": "No results",
+  "premiumHeroTitle": "Begzar Premium",
+  "premiumHeroSubtitle": "Sign in to access premium servers and manage your subscription",
+  "signInToPremium": "Sign in to Premium",
+  "usePremiumCredentials": "Use your premium account credentials",
+  "password": "Password",
+  "signIn": "Sign In",
+  "signingIn": "Signing in...",
+  "emailOrUsername": "Email or username",
+  "createAccountLink": "No account yet? Create one",
+  "signInLink": "Already have an account? Sign in",
+  "createAccountTitle": "Create your account",
+  "createAccountHint": "We'll email you a code to confirm it",
+  "email": "Email",
+  "confirmPassword": "Confirm password",
+  "createAccount": "Create account",
+  "creatingAccount": "Creating account...",
+  "signUpPrivacyNotice": "By creating an account you accept the Privacy Policy",
+  "verifyEmailTitle": "Check your email",
+  "verifyEmailHint": "Enter the 6-digit code we sent to:",
+  "confirmationCode": "Code",
+  "confirmCode": "Confirm",
+  "confirmingCode": "Confirming...",
+  "resendCode": "Resend code",
+  "resendCodeIn": "{seconds, plural, =1{Resend in 1 second} other{Resend in {seconds} seconds}}",
+  "@resendCodeIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "changeEmail": "Change email",
+  "errEmailFormat": "Enter a valid email address",
+  "errPasswordLength": "{min, plural, =1{Use at least 1 character} other{Use at least {min} characters}}",
+  "@errPasswordLength": {
+    "placeholders": {
+      "min": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "errPasswordMismatch": "Passwords don't match",
+  "errCodeFormat": "Enter the 6-digit code",
+  "deleteAccount": "Delete account",
+  "deleteAccountTitle": "Delete your account?",
+  "deleteAccountMessage": "This deletes your account, its linked devices and any paid time left on it, right away. It can't be undone.",
+  "deleteAccountPlayNote": "Deleting your account does not cancel a Google Play subscription.",
+  "manageGooglePlaySubscription": "Manage in Google Play",
+  "deleteAccountConfirm": "Delete",
+  "deletingAccount": "Deleting...",
+  "accountDeleted": "Your account was deleted",
+  "paywallDevices": "{count, plural, =1{1 device} other{{count} devices}}",
+  "@paywallDevices": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "paywallMonths": "{count, plural, =1{1 month} other{{count} months}}",
+  "@paywallMonths": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "paywallTitle": "Go Premium",
+  "paywallCompareHeading": "What you get",
+  "paywallRowAds": "Ads",
+  "paywallBasicAds": "Every time",
+  "paywallPremiumAds": "None",
+  "paywallRowCountry": "Country",
+  "paywallBasicCountry": "Automatic",
+  "paywallIncluded": "Included",
+  "paywallRowServers": "Servers",
+  "paywallBasicServers": "Shared",
+  "paywallPremiumServers": "Full speed",
+  "paywallRowDevices": "Devices",
+  "paywallNotIncluded": "Not included",
+  "paywallPremiumDevices": "{count, plural, =1{1} other{Up to {count}}}",
+  "@paywallPremiumDevices": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "paywallDevicesHint": "At the same time",
+  "paywallFewerDevices": "Fewer devices",
+  "paywallMoreDevices": "More devices",
+  "paywallPerMonth": "{price} / month",
+  "@paywallPerMonth": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "paywallSave": "Save {percent}%",
+  "@paywallSave": {
+    "placeholders": {
+      "percent": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "paywallBestValue": "Best value",
+  "paywallContinue": "{period, select, month{Continue — {price} a month} year{Continue — {price} a year} other{Continue — {price} for {months} months}}",
+  "@paywallContinue": {
+    "description": "The paywall's button. period is month for a monthly plan, year for a yearly one, and other for any other length, which months then names.",
+    "placeholders": {
+      "period": {
+        "type": "String"
+      },
+      "price": {
+        "type": "String"
+      },
+      "months": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "subscriptionAutoRenews": "Renews automatically. Cancel anytime in Google Play.",
+  "paymentProblemsLink": "Having payment problems?",
+  "purchasePending": "Your payment is pending. Premium starts once Google Play confirms it.",
+  "purchaseConfirmLater": "Payment received. Premium starts as soon as we confirm it.",
+  "purchaseGranted": "Premium is active",
+  "signInToSubscribe": "Sign in or create an account to subscribe",
+  "premiumActive": "Premium Active",
+  "premiumAccountInactive": "Account Inactive",
+  "premiumNoSubscription": "No subscription yet",
+  "premiumNoSubscriptionHint": "Premium unlocks faster servers with no ads. After you buy, tap Refresh.",
+  "premiumNoSubscriptionHintDesktop": "Premium unlocks faster servers with no ads. After you buy, click Refresh.",
+  "premiumExpiredHint": "Your subscription has ended. Renew it to use premium servers again.",
+  "premiumInactiveHint": "This account is disabled. Contact support to restore it.",
+  "premiumPerkServers": "Premium servers",
+  "planFree": "Free",
+  "premiumPerkStaticIp": "Static IP",
+  "premiumPerkNoAds": "No ads",
+  "homeFactMode": "Mode",
+  "homeFactDns": "DNS",
+  "homeFactApps": "Apps",
+  "homeModeVpn": "VPN",
+  "homeSupport": "Support",
+  "navSettings": "Settings",
+  "navHome": "Home",
+  "navPremium": "Premium",
+  "homeAppsAll": "All apps",
+  "homeAppsExcept": "All but {count}",
+  "@homeAppsExcept": {
+    "description": "Persian keeps two spaces before the count: ز curls left under one, and the count reads as joined to it.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "homeAppsOnly": "Only {count}",
+  "@homeAppsOnly": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "expires": "Expires",
+  "remaining": "Days Remaining",
+  "accountStatus": "Account Status",
+  "userStatusActive": "Active",
+  "userStatusExpired": "Expired",
+  "userStatusInactive": "Inactive",
+  "userStatusDisabled": "Disabled",
+  "userStatusSuspended": "Suspended",
+  "userStatusBanned": "Banned",
+  "expired": "Expired",
+  "refresh": "Refresh",
+  "signOut": "Sign Out",
+  "signingOut": "Signing out...",
+  "deviceBindingInfo": "Your account is bound to this device. Premium configs are protected by device locking.",
+  "linkedDevices": "Linked Devices",
+  "linkedDevicesHint": "Loading connected devices...",
+  "devicesCount": "{active} of {max} devices",
+  "@devicesCount": {
+    "placeholders": {
+      "active": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "max": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "noLinkedDevices": "No linked devices found",
+  "thisDevice": "This device",
+  "deviceLoggedInAt": "Signed in {date}",
+  "@deviceLoggedInAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "removeDevice": "Remove",
+  "removeDeviceTitle": "Remove Device",
+  "removeDeviceMessage": "Remove \"{name}\" from your Premium account? It will be signed out immediately.",
+  "@removeDeviceMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deviceRemovedSuccess": "Device removed successfully",
+  "tryAgain": "Try Again",
+  "disconnect": "Disconnect",
+  "tunnelStalledTitle": "No traffic getting through",
+  "tunnelStalledHint": "This server stopped answering",
+  "tunnelStalledSwitch": "Switch server",
+  "notifTunnelTitle": "Begzar is Connected",
+  "notifTunnelVpnMode": "VPN mode",
+  "notifTunnelProxyMode": "Proxy mode",
+  "notifTunnelChannelName": "Connection",
+  "notifTunnelChannelDescription": "Shows while the tunnel is connected",
+  "premiumServersTitle": "Premium Servers",
+  "premiumServersSubtitle": "Choose a server to connect",
+  "premiumServersConnectedHint": "Tap connected server to disconnect",
+  "premiumServersConnectedHintDesktop": "Click connected server to disconnect",
+  "lastConnected": "Last connected",
+  "configConnected": "Connected",
+  "@configConnected": {
+    "description": "Badge at the end of the premium config row the tunnel is up through."
+  },
+  "premiumServersEmpty": "No premium servers available",
+  "premiumServerConfigsCount": "{count} configs",
+  "@premiumServerConfigsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "serverRowChoose": "Choose a server",
+  "serverRowChooseHint": "Tap to see what is available",
+  "serverRowChooseHintDesktop": "Click to see what is available",
+  "serverRowWithdrawn": "Removed · pick another server",
+  "serverRowPremium": "Premium servers",
+  "serverRowPremiumHint": "Choose your location, skip the ads",
+  "serverRowExpired": "Subscription expired",
+  "serverRowExpiredHint": "Renew to choose a server again",
+  "serverRowInactive": "Account disabled",
+  "serverRowInactiveHint": "Contact support to restore it",
+  "notificationPermissionTitle": "Notification Permission Required",
+  "notificationPermissionMessage": "Notifications must be enabled to use Begzar. This keeps you informed about important updates and service messages.",
+  "enableNotifications": "Enable Notifications",
+  "openNotificationSettings": "Open Settings",
+  "notificationPermissionSettingsHint": "Notifications are turned off. Enable them in your device settings to continue.",
+  "macOsPermissionsTitle": "Permissions Required",
+  "macOsPermissionsMessage": "Begzar needs Secure Storage and System Proxy access on macOS. Grant both to continue.",
+  "macOsPermissionSecureStorage": "Secure Storage",
+  "macOsPermissionSecureStorageHint": "Stores your device key and account data securely.",
+  "macOsPermissionSystemProxy": "System Proxy",
+  "macOsPermissionSystemProxyHint": "Routes browser and app traffic through Begzar.",
+  "macOsPermissionGrant": "Grant",
+  "macOsPermissionGrantAll": "Grant All Permissions",
+  "macOsPermissionContinue": "Continue",
+  "macOsPermissionsBlockedHint": "You cannot use the app until both permissions are granted.",
+  "updateRequired": "Update Required",
+  "updateDescription": "A new version of the app is available. Please update to continue using the app.",
+  "currentVersion": "Current Version",
+  "requiredVersion": "Required Version",
+  "updateNow": "Update Now",
+  "updateOpenFailed": "Unable to open update page. Please visit the app store manually.",
+  "updateError": "Error opening update page: {e}",
+  "@updateError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "updateAvailableTitle": "Update available",
+  "@updateAvailableTitle": {
+    "description": "The settings row offering a newer release the user does not have to install, and what a screen reader hears on the settings tab while that release waits."
+  },
+  "updateAvailableVersions": "New version {latest} · you have {installed}",
+  "@updateAvailableVersions": {
+    "description": "Under the update row: the release it offers, then the build that is running. Versions are identifiers rather than quantities, so they keep their own digits in every locale.",
+    "placeholders": {
+      "latest": {
+        "type": "String"
+      },
+      "installed": {
+        "type": "String"
+      }
+    }
+  },
+  "adBadge": "ADS",
+  "adCloseCountdown": "You can close in {seconds}s",
+  "@adCloseCountdown": {
+    "description": "The post-connect ad wait, in words. The gate row states it as a filling rail rather than a sentence, so this is what the close control offers a screen reader.",
+    "placeholders": {
+      "seconds": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "adCloseSeconds": "{seconds}",
+  "@adCloseSeconds": {
+    "description": "The seconds left on the post-connect ad wait, shown alone inside the close control. A bare number in every locale, and a message rather than a raw interpolation so it is written in the digits that locale uses.",
+    "placeholders": {
+      "seconds": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "adSkipWarningTitle": "Connection Disconnected",
+  "adSkipWarningMessage": "Your connection was disconnected because you did not watch the ad until the end. To remove ads, purchase the Premium version.",
+  "close": "Close",
+  "linkOpenFailed": "Unable to open link",
+  "errSubscriptionRequired": "Sign in with an active Premium subscription first",
+  "errCredentialsRequired": "Username and password are required",
+  "loginFailed": "Login failed: {e}",
+  "@loginFailed": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "errRefreshFailed": "Failed to refresh subscription",
+  "errSignOutFailed": "Sign out failed. Please try again.",
+  "errLoginFailed": "Login failed",
+  "errLoadSubscription": "Failed to load subscription",
+  "errLogoutFailed": "Logout failed",
+  "errSessionNotFound": "Premium session not found. Please sign in again.",
+  "errUnexpectedConfigs": "Unexpected premium configs response",
+  "errConfigsRequestFailed": "Premium configs request failed",
+  "errNoConfigsFound": "No premium configs found (decryption or parsing failed)",
+  "loadConfigsFailed": "Failed to load premium configs: {e}",
+  "@loadConfigsFailed": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "loadDevicesFailed": "Failed to load devices: {e}",
+  "@loadDevicesFailed": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "loadPremiumServersFailed": "Failed to load premium servers: {e}",
+  "@loadPremiumServersFailed": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "removeDeviceFailed": "Failed to remove device: {e}",
+  "@removeDeviceFailed": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "errLoadDevices": "Failed to load devices",
+  "errLoadPremiumServers": "Failed to load premium servers",
+  "errRemoveDevice": "Failed to remove device",
+  "errDeviceNotFound": "Device not found",
+  "errInvalidCredentials": "Invalid username or password",
+  "errDeviceBound": "This account is bound to another device",
+  "errTooManyAttempts": "Too many attempts. Please try again later",
+  "errEmailTaken": "An account with this email already exists",
+  "errWrongPassword": "That password is not right",
+  "errPasswordRequired": "Enter your password",
+  "errCodeInvalid": "That code is not right",
+  "errCodeExpired": "That code has expired. Send a new one",
+  "errSignUpFailed": "Could not create the account",
+  "errVerifyFailed": "Could not confirm the code",
+  "errDeleteAccountFailed": "Could not delete the account",
+  "errPlansUnavailable": "Plans could not be loaded. Try again later",
+  "errPurchaseFailed": "The purchase did not go through",
+  "errPlayAlreadyOwned": "This Google account already pays for a Begzar subscription. Sign in to the account that bought it",
+  "errRateLimit": "Too many requests. Please try again later",
+  "errAccessDenied": "Access denied. Please sign in again or contact support",
+  "errNoResponse": "Could not reach the server",
+  "errNoStorageAccess": "Storage access is unavailable",
+  "errEngineLogUnavailable": "The engine log could not be read",
+  "errEngineMissing": "This build doesn't include the Begzar engine, so it can't connect",
+  "engineLogTitle": "Engine log",
+  "engineLogAll": "All",
+  "engineLogEngine": "Engine",
+  "engineLogClear": "Clear",
+  "engineLogExport": "Export",
+  "engineLogEmpty": "Nothing logged yet",
+  "engineLogDropped": "Older lines were dropped",
+  "engineLogSaved": "Log saved",
+  "engineLogClose": "Close",
+  "errConnectionTimeout": "Connection timed out. Please try again",
+  "errNetworkError": "Network error. Check your internet connection",
+  "errNoConfigsFromServer": "No servers received from the service",
+  "errNoConfigsAvailable": "No servers available to connect",
+  "errNoWorkingConfig": "No working server found. Try again later",
+  "errApiV2Unavailable": "Connection service is unavailable",
+  "errPremiumApiUnavailable": "Premium service is unavailable",
+  "errProxyTestFailed": "Could not connect to any server",
+  "errInvalidConfig": "Server configuration is invalid",
+  "errDisconnectFailed": "Disconnect failed",
+  "errConnectionFailed": "Connection failed. Please try again",
+  "errElevationDeclined": "Tunnel mode needs admin permission. Allow it when Windows asks, or choose System proxy in Settings.",
+  "errTunnelUnavailable": "Tunnel mode couldn't start. Try again, or choose System proxy in Settings.",
+  "errTunnelStopped": "The tunnel stopped. Connect again.",
+  "errUnauthorized": "Session expired. Please restart the app",
+  "errForbidden": "Access to this service is not allowed",
+  "errDeviceInitFailed": "Could not register this device with the server",
+  "errFetchConfigsFailed": "Could not load server list",
+  "errSecureConnectionFailed": "Secure connection to the server failed",
+  "errClockSkew": "This device's date or time is wrong",
+  "errClockSkewHint": "Turn on automatic date, time, and timezone, then try again",
+  "errRequestUnverified": "Could not verify this request",
+  "errRequestUnverifiedHint": "Close the app fully and open it again",
+  "errReplayDetected": "That request was already used",
+  "errReplayDetectedHint": "Wait a moment and try again",
+  "errIpBlocked": "This network cannot create a new session",
+  "errIpBlockedHint": "Try a different connection, or wait and try tomorrow",
+  "errMissingSession": "This device has no session on the server",
+  "errMissingSessionHint": "Try connecting again. If it keeps failing, close the app fully and retry",
+  "errDeviceInitFailedHint": "Check your internet, then try again",
+  "errInvalidCredentialsHint": "If you forgot it, change it in the Premium bot",
+  "errDeviceLimit": "This account has no free device slots",
+  "errDeviceLimitHint": "Reset your registered devices in the Premium bot, then sign in again",
+  "errDeviceNotRegistered": "This device is not on the account",
+  "errDeviceNotRegisteredHint": "Sign out and sign in again to register it",
+  "errAccountDisabled": "Your account has been deactivated",
+  "errAccountDisabledHint": "Contact the Premium bot for help",
+  "errAccountExpired": "Your Premium subscription has expired",
+  "errAccountExpiredHint": "Renew it in the Premium bot",
+  "errRateLimitHint": "Wait a minute and try again",
+  "errRateLimitWait": "Try again in {n} seconds",
+  "@errRateLimitWait": {
+    "placeholders": {
+      "n": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "errSessionCredentials": "Sign in again to continue",
+  "errSessionCredentialsHint": "If you cannot sign in, change your password in the Premium bot",
+  "getHelp": "Get help",
+  "daysLeft": "{days, plural, =1{{days} day} other{{days} days}}",
+  "@daysLeft": {
+    "placeholders": {
+      "days": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  }
+}

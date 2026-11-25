@@ -1,0 +1,6 @@
+/// Generated file from Flutter tooling; keep ARCHS universal for Release.
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+#include "ephemeral/Flutter-Generated.xcconfig"
+
+ARCHS = arm64 x86_64
+ONLY_ACTIVE_ARCH = NO

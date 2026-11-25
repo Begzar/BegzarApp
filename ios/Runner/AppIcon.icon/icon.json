@@ -1,0 +1,64 @@
+{
+  "fill-specializations": [
+    {
+      "value": {
+        "linear-gradient": [
+          "extended-srgb:0.95686,0.95686,0.96078,1.00000",
+          "extended-srgb:0.90196,0.90196,0.91765,1.00000"
+        ]
+      }
+    },
+    {
+      "appearance": "dark",
+      "value": {
+        "linear-gradient": [
+          "extended-srgb:0.04314,0.04314,0.03922,1.00000",
+          "extended-srgb:0.09804,0.09804,0.08235,1.00000"
+        ]
+      }
+    }
+  ],
+  "groups": [
+    {
+      "name": "Bird",
+      "layers": [
+        {
+          "name": "Body",
+          "glass": false,
+          "image-name-specializations": [
+            {
+              "value": "bird.png"
+            },
+            {
+              "appearance": "dark",
+              "value": "bird-dark.png"
+            },
+            {
+              "appearance": "tinted",
+              "value": "bird-tinted.png"
+            }
+          ]
+        },
+        {
+          "name": "Accent",
+          "glass": false,
+          "image-name": "bird-accent.png"
+        }
+      ],
+      "shadow": {
+        "kind": "none",
+        "opacity": 0
+      },
+      "specular": false,
+      "translucency": {
+        "enabled": false,
+        "value": 0
+      }
+    }
+  ],
+  "supported-platforms": {
+    "squares": [
+      "iOS"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+lib/l10n/untranslated.txt
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+/build/debug-info/
+
+# Windows release artifacts
+/dist/
+
+# Android signing (never commit)
+android/key.properties
+android/*.jks
+android/*.keystore
+**/upload-keystore.jks
+
+
+# Per-platform build output. The `/build/` rule above is root-anchored and does
+# not cover the trees Xcode and Gradle write beside their own projects.
+macos/build/
+android/build/
+
+# Local API debug scripts (may contain access_key)
+scripts/run_premium_user_data.sh
+
+# Security assessment reports. They are shared with us privately and name
+# unfixed findings; the repo is not where they belong.
+*Security Report*.pdf
+
+# Chooses the engine stub locally; see scripts/use_engine.sh.
+pubspec_overrides.yaml
+# The stub resolves inside the app; its own lock means nothing.
+engine_stub/pubspec.lock

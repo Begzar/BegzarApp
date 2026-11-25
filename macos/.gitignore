@@ -1,0 +1,17 @@
+# Flutter-related
+**/Flutter/ephemeral/
+**/Pods/
+
+# Xcode-related
+**/dgph
+**/xcuserdata/
+
+# gomobile kit is not used on macOS (cgo libbegzar_engine instead)
+BegzarEngineKit.xcframework
+
+# Built and installed here by begzar-engine/scripts/build_mac.sh
+libbegzar_engine.xcframework/
+
+# Written by flutter on every pub get, naming whichever engine was chosen
+# (scripts/use_engine.sh), so keeping them would dirty the tree on the other.
+Flutter/GeneratedPluginRegistrant.swift

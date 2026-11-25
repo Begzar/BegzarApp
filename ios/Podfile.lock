@@ -1,0 +1,22 @@
+PODS:
+  - begzar_engine (3.0.0):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - begzar_engine (from `.symlinks/plugins/begzar_engine/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  begzar_engine:
+    :path: ".symlinks/plugins/begzar_engine/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  begzar_engine: 0b3101f68a66fa13836a583133f02e40ebae57e0
+  Flutter: 71a624a5bc0c04062bf19101d501e466baf2fb47
+
+PODFILE CHECKSUM: 21586c4396b6ca4393abce771e4fe03f0fc439a3
+
+COCOAPODS: 1.17.0

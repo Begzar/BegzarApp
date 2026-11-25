@@ -1,0 +1,172 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Reading whether another app's VPN carries this app's traffic. A
+         dependency already merges it in; declared here so the check does not
+         rest on a library keeping it. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- Required on Android 14+ (API 34+) alongside foregroundServiceType=systemExempted.
+         An app the user has configured as their VPN is one of the categories that
+         type is open to; no other listed type describes a tunnel. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED" />
+
+    <!-- Requested by plugins for features this app does not use. -->
+    <!-- installed_apps: the exclude-apps list only shows launchable apps, which
+         the launcher query below makes visible, and the plugin's uninstall
+         call is never made. -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:node="remove" />
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"
+        tools:node="remove" />
+    <!-- firebase_analytics: the advertising ID and ad attribution. The app
+         runs no ad network, so there is nothing for them to attribute. -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID"
+        tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION"
+        tools:node="remove" />
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"
+        tools:node="remove" />
+
+    <application
+        android:label="@string/app_name"
+        android:name=".BegzarApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:enableOnBackInvokedCallback="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="false">
+        
+        <!-- WebView configuration for Samsung devices -->
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" />
+            
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+            <!-- Deep link for handling notification clicks -->
+            <intent-filter>
+                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Firebase Cloud Messaging -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_vpn" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@android:color/transparent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="high_importance_channel" />
+        <!-- The advertising ID permissions are removed above; this stops
+             Analytics from trying to read it anyway. -->
+        <meta-data
+            android:name="google_analytics_adid_collection_enabled"
+            android:value="false" />
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+
+    </application>
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="https"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="http"/>
+        </intent>
+
+        <!-- The exclude-apps list, which shows launchable apps only. -->
+        <intent>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent>
+
+        <!-- SecurityGate's root check. RootBeer's isRooted() looks these up by
+             name, and since Android 11 a package the app cannot see reads as
+             not installed, so without QUERY_ALL_PACKAGES the check would
+             quietly stop finding them. Copied from rootbeer-lib 0.1.2's
+             knownRootAppsPackages and knownDangerousAppsPackages; revisit
+             when root_checker_plus moves to another RootBeer. -->
+        <package android:name="com.noshufou.android.su"/>
+        <package android:name="com.noshufou.android.su.elite"/>
+        <package android:name="eu.chainfire.supersu"/>
+        <package android:name="com.koushikdutta.superuser"/>
+        <package android:name="com.thirdparty.superuser"/>
+        <package android:name="com.yellowes.su"/>
+        <package android:name="com.topjohnwu.magisk"/>
+        <package android:name="com.kingroot.kinguser"/>
+        <package android:name="com.kingo.root"/>
+        <package android:name="com.smedialink.oneclickroot"/>
+        <package android:name="com.zhiqupk.root.global"/>
+        <package android:name="com.alephzain.framaroot"/>
+        <package android:name="com.koushikdutta.rommanager"/>
+        <package android:name="com.koushikdutta.rommanager.license"/>
+        <package android:name="com.dimonvideo.luckypatcher"/>
+        <package android:name="com.chelpus.lackypatch"/>
+        <package android:name="com.ramdroid.appquarantine"/>
+        <package android:name="com.ramdroid.appquarantinepro"/>
+        <package android:name="com.android.vending.billing.InAppBillingService.COIN"/>
+        <package android:name="com.android.vending.billing.InAppBillingService.LUCK"/>
+        <package android:name="com.chelpus.luckypatcher"/>
+        <package android:name="com.blackmartalpha"/>
+        <package android:name="org.blackmart.market"/>
+        <package android:name="com.allinone.free"/>
+        <package android:name="com.repodroid.app"/>
+        <package android:name="org.creeplays.hack"/>
+        <package android:name="com.baseappfull.fwd"/>
+        <package android:name="com.zmapp"/>
+        <package android:name="com.dv.marketmod.installer"/>
+        <package android:name="org.mobilism.android"/>
+        <package android:name="com.android.wp.net.log"/>
+        <package android:name="com.android.camera.update"/>
+        <package android:name="cc.madkite.freedom"/>
+        <package android:name="com.solohsu.android.edxp.manager"/>
+        <package android:name="org.meowcat.edxposed.manager"/>
+        <package android:name="com.xmodgame"/>
+        <package android:name="com.cih.game_cih"/>
+        <package android:name="com.charles.lpoqasert"/>
+        <package android:name="catch_.me_.if_.you_.can_"/>
+    </queries>
+</manifest>

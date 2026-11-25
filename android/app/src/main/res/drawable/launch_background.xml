@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The launch window on Android 11 and below. Android 12 and up ignores this
+     and draws its own splash from values-v31/styles.xml instead, so the two
+     are kept to the same ground and the same mark. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/splash_background" />
+
+    <item>
+        <!-- Centred at its own size rather than scaled: the artwork is already
+             drawn per density on the Android 12 icon canvas, so letting the
+             window stretch it would make the mark a different size here than
+             it is one OS version up. -->
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/splash_bird" />
+    </item>
+</layer-list>

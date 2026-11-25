@@ -1,0 +1,6 @@
+flutter/ephemeral
+
+# Written by flutter on every pub get, naming whichever engine was chosen
+# (scripts/use_engine.sh), so keeping them would dirty the tree on the other.
+flutter/generated_plugin_registrant.*
+flutter/generated_plugins.cmake

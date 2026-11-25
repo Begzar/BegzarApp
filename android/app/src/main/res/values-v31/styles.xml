@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 12 and up draws the launch window itself and ignores
+         windowBackground's artwork, so the mark has to be handed over as the
+         splash icon instead. Same ground and same drawable as
+         drawable/launch_background.xml, which is what older versions read,
+         and the same day and night split through values-night and
+         drawable-night. The icon sits on a 288dp canvas of which only the
+         inner circle is shown, and splash_bird.png is drawn with that padding
+         already in it. The icon background is left transparent so the ground
+         stays flat — a colour here would put a disc behind the bird. -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+        <item name="android:windowSplashScreenBackground">@color/splash_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_bird</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">@bool/launch_light_bars</item>
+        <item name="android:windowLightNavigationBar">@bool/launch_light_bars</item>
+    </style>
+</resources>

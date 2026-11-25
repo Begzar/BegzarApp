@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The launch window's ground, and the window behind Flutter until the
+         first frame lands: the light page, AppPalette.light's page, so the
+         handover to Flutter is not a change of colour. values-night names the
+         dark page. tool/app_icon/generate_icons.py draws the mark for both and
+         test/architecture/launch_window_colours_test.dart holds both to the
+         palette. -->
+    <color name="splash_background">#FFE2E7EE</color>
+</resources>

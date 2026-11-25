@@ -1,0 +1,161 @@
+name: begzar
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 8.1.0+39
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+
+  # Backend Packages
+  flutter_riverpod: ^3.4.3
+  fpdart: ^1.2.0
+  go_router: ^18.1.0
+  dio: ^5.11.1
+  shimmer: ^4.0.0
+  crypto: ^3.0.5
+  cryptography: ^2.7.0
+  # Held below 4.0.4: from there it pulls material_ui 1.4 or later, which needs
+  # Dart 3.13, and release.yml pins Flutter 3.44.2, which ships Dart 3.12. With
+  # 4.0.4 the 7.2.0 release failed at `flutter pub get` on every platform. Raise
+  # this together with FLUTTER_VERSION, not on its own.
+  cached_network_image: ">=4.0.0 <4.0.4"
+  flutter_cache_manager: ^3.4.2
+  http: ^1.6.0
+  url_launcher: ^6.3.3
+  intl: any
+  path_provider: ^2.1.5
+  flutter_secure_storage: ^11.2.0
+  installed_apps: ^2.2.1
+  package_info_plus: ^10.2.2
+  # Pinned, not a range: 1.1.0 moves its RootBeer dependency BACKWARDS, from
+  # rootbeer-lib 0.1.1 to 0.1.0, and 0.1.0's libtoolChecker.so is built with
+  # 4 KB LOAD alignment (0x1000) where 0.1.1 uses 16 KB (0x4000). Taking the
+  # newer package would cost the app its 16 KB page-size compliance, which
+  # Play requires of updates targeting Android 15 and above. Revisit when
+  # root_checker_plus ships a version that depends on 0.1.1 or later.
+  #
+  # The app's AndroidManifest <queries> copies the package names RootBeer
+  # looks up, since the app no longer holds QUERY_ALL_PACKAGES. A bump that
+  # changes the RootBeer version has to re-check that list.
+  root_checker_plus: 1.1.1
+
+  # The open stand-in, so a checkout without the private engine builds. The
+  # private engine (the begzar-engine/ submodule) replaces it through an
+  # uncommitted pubspec_overrides.yaml: scripts/use_engine.sh private.
+  begzar_engine:
+    path: ./engine_stub
+
+
+  # Frontend Packages
+  flutter_screenutil: ^5.9.3
+  
+  loading_animation_widget: ^1.3.0
+  iconsax_flutter: ^1.0.1
+  socks5_proxy:
+    git:
+      url: https://github.com/lacticwhale/socks_dart.git
+      ref: lookup
+  firebase_core: ^5.0.0
+  firebase_messaging: ^17.0.0
+  firebase_in_app_messaging: ^0.10.0
+  firebase_analytics: ^13.0.0
+  flutter_local_notifications: ^22.3.2
+  permission_handler: ^12.0.3
+  uuid: ^4.5.1
+  shamsi_date: ^1.1.1
+  in_app_purchase: ^3.3.1
+  in_app_purchase_android: ^0.5.4
+  share_plus: ^13.3.1
+  file_selector_windows: ^0.9.3+6
+  file_selector_platform_interface: ^2.7.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/flags/
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+    - family: Geist
+      fonts:
+        - asset: assets/fonts/Geist-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Geist-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Geist-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Geist-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Geist-Bold.ttf
+          weight: 700
+    - family: GeistMono
+      fonts:
+        - asset: assets/fonts/GeistMono-Light.ttf
+          weight: 300
+        - asset: assets/fonts/GeistMono-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/GeistMono-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/GeistMono-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/GeistMono-Bold.ttf
+          weight: 700
+    - family: Unbounded
+      fonts:
+        - asset: assets/fonts/Unbounded-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Unbounded-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Unbounded-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Unbounded-Bold.ttf
+          weight: 700
+    - family: Estedad
+      fonts:
+        - asset: assets/fonts/Estedad-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Estedad-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Estedad-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Estedad-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Estedad-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Estedad-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Estedad-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Estedad-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Estedad-Black.ttf
+          weight: 900
+    - family: NotoColorEmoji
+      fonts:
+        - asset: assets/fonts/NotoColorEmoji.ttf

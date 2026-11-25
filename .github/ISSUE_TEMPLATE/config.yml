@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Telegram support
+    url: https://t.me/BegzarVPN
+    about: Connection help, account questions, and general usage.
+  - name: 🔒 Report a security vulnerability
+    url: mailto:info@begzar.xyz
+    about: Report privately by email. Please do not open a public issue.
+  - name: 💎 Premium and subscriptions
+    url: https://begzar.app
+    about: Plans, billing, and account management.

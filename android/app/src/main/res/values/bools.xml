@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Whether the system bars over the launch window draw dark icons: yes
+         on the light ground, no on the dark one in values-night. One flag
+         rather than a night copy of each launch style. -->
+    <bool name="launch_light_bars">true</bool>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The launch window's ground in the dark: AppPalette.dark's page. See
+         values/colors.xml. -->
+    <color name="splash_background">#FF0A0D12</color>
+</resources>

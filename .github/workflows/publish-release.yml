@@ -1,0 +1,93 @@
+name: Publish release
+
+# Publishes a release of the public repository, as GitHub Actions, from the
+# build the maintainers staged in a draft release. Started only by hand, by
+# the maintainers' release script; nothing here builds, and no push, tag or
+# pull request starts it.
+#
+# The staged draft holds every file of the release and their SHA256SUMS. The
+# files are checked against it, published on the commit this run is on, and
+# the draft is deleted. The repository needs no secret: the token is the run's
+# own.
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release tag, such as v8.1.0"
+        required: true
+        type: string
+      staging:
+        description: "The draft release holding the build, staging-<version>"
+        required: true
+        type: string
+      prerelease:
+        description: "Publish as a pre-release"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish ${{ inputs.version }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the staged build and publish it
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          VERSION: ${{ inputs.version }}
+          STAGING: ${{ inputs.staging }}
+          PRERELEASE: ${{ inputs.prerelease }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error::'$VERSION' is not a release tag like v8.1.0"
+            exit 1
+          fi
+          if [[ "$STAGING" != "staging-$VERSION" ]]; then
+            echo "::error::The staged draft for $VERSION is staging-$VERSION, not $STAGING"
+            exit 1
+          fi
+          if gh release view "$VERSION" >/dev/null 2>&1; then
+            echo "::error::$VERSION is already released."
+            exit 1
+          fi
+          if [[ "$(gh release view "$STAGING" --json isDraft -q .isDraft)" != "true" ]]; then
+            echo "::error::$STAGING is not a draft release."
+            exit 1
+          fi
+
+          dir="$RUNNER_TEMP/release"
+          mkdir -p "$dir"
+          gh release download "$STAGING" -D "$dir"
+          gh release view "$STAGING" --json body -q .body > "$RUNNER_TEMP/notes.md"
+          title="$(gh release view "$STAGING" --json name -q .name)"
+
+          # Every file the draft holds must be one SHA256SUMS lists, and match it.
+          (
+            cd "$dir"
+            [[ -f SHA256SUMS ]] || { echo "::error::The staged draft has no SHA256SUMS."; exit 1; }
+            for file in *; do
+              [[ "$file" == SHA256SUMS ]] && continue
+              grep -q "  $file\$" SHA256SUMS || { echo "::error::$file is not in SHA256SUMS."; exit 1; }
+            done
+            sha256sum --strict -c SHA256SUMS
+          )
+
+          flags=(--latest)
+          [[ "$PRERELEASE" == "true" ]] && flags=(--prerelease --latest=false)
+          gh release create "$VERSION" "$dir"/* \
+            --target "$GITHUB_SHA" \
+            --title "$title" \
+            --notes-file "$RUNNER_TEMP/notes.md" \
+            "${flags[@]}"
+          gh release delete "$STAGING" --yes
+          echo "Published $VERSION on $GITHUB_SHA."
